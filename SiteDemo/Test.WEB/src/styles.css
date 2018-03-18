@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css"; /*theme for angular material components get correct view*/
+
+body {
+  background-color: #d9d9d9;
+  min-width: 360px;
+}
+
+input {
+  color: black;
+  max-width: 100%;
+}
+
+.block {
+  background: #5b73a3;
+  padding: .5em;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

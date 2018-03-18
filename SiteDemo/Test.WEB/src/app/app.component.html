@@ -1,0 +1,26 @@
+  <div class="container">
+    <!--<mat-tab-group>
+      <mat-tab label="Products"><home-page></home-page></mat-tab>
+      <mat-tab label="Statistics"><product-statistic></product-statistic></mat-tab>
+    </mat-tab-group>-->
+
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link
+         [routerLink]="['/products']"
+         routerLinkActive #product="routerLinkActive"
+         [active]="product.isActive">
+        Products
+      </a>
+      <a mat-tab-link
+         [routerLink]="['/statistic']"
+         routerLinkActive #statistic="routerLinkActive"
+         [active]="statistic.isActive">
+        Statistic
+      </a>
+    </nav>
+
+    <router-outlet></router-outlet>
+    <toaster-container [toasterconfig]="baseToasterConfig"></toaster-container>
+  </div>
+
+

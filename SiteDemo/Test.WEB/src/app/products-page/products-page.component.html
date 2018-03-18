@@ -1,0 +1,37 @@
+<form #form="ngForm" (ngSubmit)="form.valid && (product.id ? updateProduct() : addProduct())">
+  <div class="block">
+    <h1>Products</h1>
+    <input class="nameText" type="text" name="productName" maxlength="10" placeholder="Product name" [(ngModel)]="product.name" #productName="ngModel" required>
+    <input class="nameText" type="text" name="productType" maxlength="10" placeholder="Product type" [(ngModel)]="product.type" #productType="ngModel" required>
+    <button type="submit" class="btn btn-dark">
+      <span *ngIf="product.id">Edit</span>
+      <span *ngIf="!product.id">Add</span>
+    </button>
+  </div>
+</form>
+
+<div class="block">
+  <table *ngIf="products.length>0" align="center" width="320" border="1" cellpadding="0" cellspacing="0">
+    <tr id="headers">
+      <th>Name</th>
+      <th>Type</th>
+      <th></th>
+    </tr>
+    <tr id="products" *ngFor="let product of products">
+      <td>{{ product.name }}</td>
+      <td>{{ product.type }}</td>
+      <td>
+        <span (click)="selectProduct(product)">Edit</span>
+        <span (click)="deleteProduct(product)">Delete</span>
+      </td>
+    </tr>
+  </table>
+  <span *ngIf="products.length ===0">
+    There are no products in the database. Add one.
+  </span>
+</div>
+<mat-paginator [length]="length"
+               [pageSize]="pageSize"
+               [pageIndex]="currentPage"
+               (page)="getProducts($event.pageIndex)">
+</mat-paginator>

@@ -1,0 +1,22 @@
+<div class="block">
+  <h1>Statistic</h1>
+  <table *ngIf="products.length>0" align="center" width="320" border="1" cellpadding="0" cellspacing="0">
+    <tr id="headers">
+      <th>Type</th>
+      <th>Count</th>
+    </tr>
+    <tr id="products" *ngFor="let group of groups">
+      <td>{{ group.key }}</td>
+      <td>{{ group.count }}</td>
+    </tr>
+  </table>
+  <span *ngIf="products.length ===0">
+    There are no products in the database.
+  </span>
+</div>
+<mat-paginator [length]="length"
+               [pageSize]="pageSize"
+               [pageIndex]="currentPage"
+               (page)="getGrouped($event.pageIndex)">
+</mat-paginator>
+
