@@ -7,22 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="src\app\_enums\**" />
     <Compile Remove="src\app\_guards\**" />
     <Compile Remove="src\app\_helpers\**" />
     <Compile Remove="src\app\_hubs\**" />
     <Compile Remove="src\app\_interceptors\**" />
-    <Content Remove="src\app\_enums\**" />
     <Content Remove="src\app\_guards\**" />
     <Content Remove="src\app\_helpers\**" />
     <Content Remove="src\app\_hubs\**" />
     <Content Remove="src\app\_interceptors\**" />
-    <EmbeddedResource Remove="src\app\_enums\**" />
     <EmbeddedResource Remove="src\app\_guards\**" />
     <EmbeddedResource Remove="src\app\_helpers\**" />
     <EmbeddedResource Remove="src\app\_hubs\**" />
     <EmbeddedResource Remove="src\app\_interceptors\**" />
-    <None Remove="src\app\_enums\**" />
     <None Remove="src\app\_guards\**" />
     <None Remove="src\app\_helpers\**" />
     <None Remove="src\app\_hubs\**" />
@@ -30,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="src\app\_enums\languageType.ts" />
     <None Remove="src\app\_models\genders.ts" />
     <None Remove="src\app\_models\groupItem.ts" />
     <None Remove="src\app\_models\languages.ts" />
@@ -58,10 +55,11 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="src\app\_enums\languageType.ts" />
     <TypeScriptCompile Include="src\app\_models\groupItem.ts" />
     <TypeScriptCompile Include="src\app\_models\PageModel.ts" />
-    <TypeScriptCompile Include="src\app\_models\product.ts" />
-    <TypeScriptCompile Include="src\app\_services\product.service.ts" />
+    <TypeScriptCompile Include="src\app\_models\question.ts" />
+    <TypeScriptCompile Include="src\app\_services\questions.service.ts" />
   </ItemGroup>
 
 </Project>

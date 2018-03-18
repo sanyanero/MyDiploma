@@ -9,10 +9,10 @@ using Test.MODELS.Helpers;
 
 namespace Test.DAL.Concrete
 {
-    public class ProductsRepository : GenericRepository<Product>, IProductsRepository
+    public class QuestionsRepository : GenericRepository<Question>, IQuestionsRepository
     {
-        public ProductsRepository(ApplicationContext context) : base(context) { }
-        public IEnumerable<GroupModel<T>> GroupBy<T>(Expression<Func<Product, T>> groupBy, int page, int count)
+        public QuestionsRepository(ApplicationContext context) : base(context) { }
+        public IEnumerable<GroupModel<T>> GroupBy<T>(Expression<Func<Question, T>> groupBy, int page, int count)
         {
             return _dbSet.GroupBy(groupBy)
                 .Skip(page * count).Take(count)
@@ -20,7 +20,7 @@ namespace Test.DAL.Concrete
                 .ToList();
 
         }
-        public int GroupCount<T>(Expression<Func<Product, T>> groupBy)
+        public int GroupCount<T>(Expression<Func<Question, T>> groupBy)
         {
             return _dbSet.GroupBy(groupBy)
                 .Count();

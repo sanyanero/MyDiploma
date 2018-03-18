@@ -45,7 +45,7 @@ namespace Test.API
             services.Configure<AppConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
 
             services.AddDbContext<ApplicationContext>(options =>
-                options.UseInMemoryDatabase(Configuration.GetConnectionString("TestingConnectionString")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionSqlServer")));
 
             services.AddCors(options =>
             {

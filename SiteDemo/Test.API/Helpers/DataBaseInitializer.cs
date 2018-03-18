@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Test.DAL.Abstract;
 using Test.MODELS.Entities;
+using Test.MODELS.Enums;
 
 namespace Test.API.Helpers
 {
@@ -15,21 +16,21 @@ namespace Test.API.Helpers
 
         public async Task Initialize()
         {
-            var productsCount = await _unitOfWork.ProductsRepository.CountAsync(filters: null);
-            
-            if (productsCount == 0)
+            var questionsCount = await _unitOfWork.QuestionsRepository.CountAsync(filters: null);
+
+            if (questionsCount == 0)
             {
-                var products = new List<Product>
+                var questions = new List<Question>
                 {
-                    new Product {Name = "Test", Type = "TestType"}      
+                    new Question {QuestionText = "Which of the following is correct about C#?", Language = LanguageType.DotNet, Option1 = "It is component oriented.", Option2 = "It can be compiled on a variety of computer platforms." ,Option3 = "It is a part of .Net Framework.", Option4 = "All of the above.", AnswerNum = 4}
                 };
 
-                //foreach (var product in products)
-                //{
-                //    //await _unitOfWork.ProductsRepository.AddAsync(product);
-                //}
+                foreach (var question in questions)
+                {
+                    await _unitOfWork.QuestionsRepository.AddAsync(question);
+                }
 
-                await _unitOfWork.ProductsRepository.AddRangeAsync(products);
+                await _unitOfWork.QuestionsRepository.AddRangeAsync(questions);
 
                 await _unitOfWork.Save();
             }

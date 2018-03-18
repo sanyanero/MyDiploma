@@ -15,15 +15,13 @@ import { BaseTosterService } from "./_services/base-toaster.service";
 
 import { AppComponent } from "./app.component";
 
-import { ProductsService } from "./_services/product.service";
 
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { ProductsPageComponent } from "./products-page/products-page.component";
-import { ProductStatisticPageComponent } from "./product-statistic-page/product-statistic-page.component";
+import { QuestionsService } from "./_services/questions.service";
 
 const appRoutes: Routes = [
   { path: "products", component: ProductsPageComponent },
-  { path: "statistic", component: ProductStatisticPageComponent },
   
   {
     path: "",
@@ -36,8 +34,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsPageComponent,
-    ProductStatisticPageComponent
+    ProductsPageComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -52,7 +49,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     BaseTosterService,
-    ProductsService
+    QuestionsService
   ],
   bootstrap: [
     AppComponent

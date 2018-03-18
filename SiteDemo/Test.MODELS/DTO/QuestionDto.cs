@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Test.MODELS.DTO {
-    public class ProductDTO {
+    public class QuestionDto {
 
         public virtual Guid? Id { get; set; }
         [Required]

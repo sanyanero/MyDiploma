@@ -7,7 +7,7 @@ using Test.MODELS.DTO;
 
 namespace Test.MODELS.Entities
 {
-    public class Product : IEntity
+    public class User : IEntity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -15,9 +15,11 @@ namespace Test.MODELS.Entities
 
         public string Name { get; set; }
 
-        public string Type { get; set; }
+        public string Group { get; set; }
 
-        public DateTimeOffset Date { get; set; }
+        public int Score { get; set; }
+
+        public int TimeSpent { get; set; }
 
     }
 }

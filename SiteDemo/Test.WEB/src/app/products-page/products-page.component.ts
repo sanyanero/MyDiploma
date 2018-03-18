@@ -1,11 +1,11 @@
 import { Component, OnInit, Output } from '@angular/core';
 
-import { Product } from "../_models/product";
-import { ProductsService } from "../_services/product.service";
 import { BaseTosterService } from "../_services/base-toaster.service";
 import { PageModel } from "../_models/PageModel";
 import { PageEvent } from "@angular/material/paginator";
 import { EventEmitter } from "events";
+import { Question } from '../_models/question';
+import { QuestionsService } from '../_services/questions.service';
 
 
 @Component({
@@ -19,29 +19,29 @@ export class ProductsPageComponent implements OnInit {
   length: number;
   pageSize = 4;
 
-  product: Product = new Product();
+  question: Question = new Question();
 
   currentPage: number = 0;
   productCount: number = 4;
   productName: string;
 
-  public products: Array<Product> = [];
+  public questions: Array<Question> = [];
   public pageModel: any;
 
-  constructor(private productService: ProductsService,
+  constructor(private questionsService: QuestionsService,
     private toasterService: BaseTosterService) {
   }
 
   ngOnInit() {
-    this.getProducts(this.currentPage);
+    this.getQuestions(this.currentPage);
   }
 
   addProduct() {
-    this.productService.addProduct(this.product)
+    this.questionsService.addQuestion(this.question)
       .subscribe(
       product => {
         this.toasterService.success();
-        this.getProducts(this.currentPage);
+        this.getQuestions(this.currentPage);
       },
       error => {
         this.toasterService.error();
@@ -49,7 +49,7 @@ export class ProductsPageComponent implements OnInit {
   }
 
   updateProduct() {
-    this.productService.updateProduct(this.product)
+    this.questionsService.updateQuestion(this.question)
       .subscribe(
       product => {
         this.toasterService.success();
@@ -59,31 +59,31 @@ export class ProductsPageComponent implements OnInit {
       });
   }
 
-  deleteProduct(product) {
-    this.productService.deleteProduct(product.id)
+  deleteQuestion(question) {
+    this.questionsService.deleteQuestion(question.id)
       .subscribe(
       product => {
         this.toasterService.success();
-        this.getProducts(this.products.length == 1 && this.currentPage !== 0 ? this.currentPage - 1 : this.currentPage);
+        this.getQuestions(this.questions.length == 1 && this.currentPage !== 0 ? this.currentPage - 1 : this.currentPage);
       },
       error => {
         this.toasterService.error();
       });
   }
 
-  getProducts(page) {
+  getQuestions(page) {
     this.currentPage = page;
-    this.productService.getProducts(this.currentPage, this.productCount, this.productName)
+    this.questionsService.getQuestions(this.currentPage, this.productCount, this.productName)
       .subscribe(
       pageModel => {
-        this.products = pageModel.items;
+        this.questions = pageModel.items;
         this.length = pageModel.totalCount;
       },
       error => {
       });
   }
 
-  selectProduct(product) { //select a product to edit
-    this.product = product;
+  selectQuestion(product) { //select a product to edit
+    this.question = product;
   }
 }

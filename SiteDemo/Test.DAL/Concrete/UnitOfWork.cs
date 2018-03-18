@@ -15,17 +15,17 @@ namespace Test.DAL.Concrete
         }
 
 
-        private IProductsRepository _productsRepository;
+        private IQuestionsRepository _questionsRepository;
 
-        public IProductsRepository ProductsRepository
+        public IQuestionsRepository QuestionsRepository
         {
             get
             {
-                if (_productsRepository == null)
+                if (_questionsRepository == null)
                 {
-                    _productsRepository = new ProductsRepository(_context);
+                    _questionsRepository = new QuestionsRepository(_context);
                 }
-                return _productsRepository;
+                return _questionsRepository;
             }
         }
 

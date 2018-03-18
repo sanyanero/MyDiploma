@@ -4,7 +4,7 @@ namespace Test.DAL.Abstract
 {
     public interface IUnitOfWork
     {
-        IProductsRepository ProductsRepository { get; }
+        IQuestionsRepository QuestionsRepository { get; }
         Task<int> Save();
     }
 }
