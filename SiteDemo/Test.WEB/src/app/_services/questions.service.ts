@@ -18,8 +18,8 @@ export class QuestionsService {
     this.BASEURL = environment.baseApi;
   }
 
-  getQuestions(page: number, count: number, name?: string, type?: string): Observable<PageModel<Question>> {
-    var url = 'api/questions?page=' + page + '&count=' + count + (type ? '&type=' + type : '') + (name ? '&name=' + name : '');
+  getQuestions(page: number, count: number, id: number): Observable<PageModel<Question>> {
+    var url = 'api/questions/paged?page=' + page + '&count=' + count + '&id=' + id;
     return this.http.get<PageModel<Question>>(this.BASEURL + url);
   }
 

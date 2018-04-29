@@ -17,15 +17,19 @@ import { AppComponent } from "./app.component";
 
 
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { ProductsPageComponent } from "./products-page/products-page.component";
+import { TestsPageComponent } from "./tests-page/tests-page.component";
 import { QuestionsService } from "./_services/questions.service";
+import { NavbarComponent } from './navbar/navbar.component';
+import { TestPageComponent } from './test-page/test-page.component';
+import { QuestionViewComponent } from './question-view/question-view.component';
 
 const appRoutes: Routes = [
-  { path: "products", component: ProductsPageComponent },
-  
+  { path: "tests", component: TestsPageComponent },
+  { path: "test/:id", component: TestPageComponent },
+
   {
     path: "",
-    redirectTo: "/products",
+    redirectTo: "/home",
     pathMatch: "full"
   }
 ];
@@ -34,7 +38,10 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsPageComponent
+    TestsPageComponent,
+    NavbarComponent,
+    TestPageComponent,
+    QuestionViewComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

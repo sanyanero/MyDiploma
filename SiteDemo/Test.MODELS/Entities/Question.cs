@@ -16,9 +16,9 @@ namespace Test.MODELS.Entities
 
         public string QuestionText { get; set; }
 
-        public byte[] QuestionPhoto { get; set; }
+        public string QuestionPhoto { get; set; }
 
-        public LanguageType Language { get; set; }
+        public int Language { get; set; }
 
         public string Option1 { get; set; }
 

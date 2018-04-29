@@ -1,0 +1,32 @@
+
+<img *ngIf="question.questionPhoto" class="projectPicture" src="{{question.questionPhoto}}" alt="Picture">
+<img *ngIf="!question.questionPhoto" class="projectPicture" src="" alt="Picture">
+
+<div class="viewArea">
+  <p>
+    <i class="fas fa-archive"></i>
+    <b>Question: </b>{{ question.questionText }}
+  </p>
+
+  <p>
+    <i class="fas fa-archive"></i>
+    <b>1: </b>{{ question.option1 }}
+  </p>
+
+  <p>
+    <i class="fas fa-archive"></i>
+    <b>2: </b>{{ question.option2 }}
+  </p>
+
+  <p>
+    <i class="fas fa-archive"></i>
+    <b>3: </b>{{ question.option3 }}
+  </p>
+
+  <p>
+    <i class="fas fa-archive"></i>
+    <b>4: </b>{{ question.option4 }}
+  </p>
+
+
+</div>

@@ -22,7 +22,8 @@ namespace Test.API.Helpers
             {
                 var questions = new List<Question>
                 {
-                    new Question {QuestionText = "Which of the following is correct about C#?", Language = LanguageType.DotNet, Option1 = "It is component oriented.", Option2 = "It can be compiled on a variety of computer platforms." ,Option3 = "It is a part of .Net Framework.", Option4 = "All of the above.", AnswerNum = 4}
+                    new Question {QuestionText = "Which of the following is correct about C#?", Language = 1, Option1 = "It is component oriented.", Option2 = "It can be compiled on a variety of computer platforms." ,Option3 = "It is a part of .Net Framework.", Option4 = "All of the above.", AnswerNum = 4},
+                    new Question {QuestionText = "Which of the following is correct about Ruby?", Language = 1, Option1 = "sadsadsadsa.", Option2 = "adsadsadsadsa" ,Option3 = "asdasdsadsadsadsa", Option4 = "asdasdsadsadsad", AnswerNum = 4}
                 };
 
                 foreach (var question in questions)

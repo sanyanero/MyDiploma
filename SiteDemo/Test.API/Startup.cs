@@ -52,7 +52,7 @@ namespace Test.API
                 options.AddPolicy("CorsPolicy",
                     builder => builder
 
-                    .WithOrigins("http://localhost:3000")
+                    .WithOrigins("http://localhost:4200")
                     
                     .AllowAnyMethod()
                     .AllowAnyHeader()

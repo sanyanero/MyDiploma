@@ -8,6 +8,7 @@ using Test.MODELS.Entities;
 using Test.MODELS.DTO;
 using System.Collections.Generic;
 using Test.MODELS.Helpers;
+using Test.MODELS.Enums;
 
 namespace Test.API.Controllers
 {
@@ -42,23 +43,11 @@ namespace Test.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetQuestions([FromQuery] int page, [FromQuery] int count, [FromQuery] string text, [FromQuery] bool isFullMatch)
+        [Route("paged")]
+        public async Task<IActionResult> GetQuestions([FromQuery] int page, [FromQuery] int count, [FromQuery] int id)
         {
-            var filters = new List<Expression<Func<Question, bool>>>();
-            
-            if (text != null)
-            {
-                if (isFullMatch) // if true = search as a full match
-                {
-                    filters.Add(p => p.QuestionText == text);
-                }
-                else
-                {
-                    filters.Add(p => p.QuestionText.Contains(text));
-                }
-            }
-
-
+            var filters = new List<Expression<Func<Question, bool>>> {c=>c.Language == id };
+           
             var questions = await _unitOfWork.QuestionsRepository.GetPagedAsync(filters: filters, count: count, page: page);
             var questionsCount = await _unitOfWork.QuestionsRepository.CountAsync(filters: filters);
             var pageReturnModel = new PageReturnModel<QuestionDto>
