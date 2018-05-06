@@ -1,8 +1,7 @@
 
-<img *ngIf="question.questionPhoto" class="projectPicture" src="{{question.questionPhoto}}" alt="Picture">
-<img *ngIf="!question.questionPhoto" class="projectPicture" src="" alt="Picture">
+  <img *ngIf="question.questionPhoto" class="projectPicture" src="{{question.questionPhoto}}" alt="Picture">
+  <img *ngIf="!question.questionPhoto" class="projectPicture" src="" alt="Picture">
 
-<div class="viewArea">
   <p>
     <i class="fas fa-archive"></i>
     <b>Question: </b>{{ question.questionText }}
@@ -27,6 +26,7 @@
     <i class="fas fa-archive"></i>
     <b>4: </b>{{ question.option4 }}
   </p>
+  <span>{{correct}}</span>
+  <input type="text" name="answer" placeholder="type answer value here" #answer required/>
 
-
-</div>
+  <button class="btn-default btn_custom" (click)="saveAnswer(answer)">Submit</button>

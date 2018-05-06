@@ -7,9 +7,11 @@
   </div>-->
 </div>
 
-<div id="projectList">
-  <question-view *ngFor="let question of questions" [question]="question"></question-view>
-</div>
+<form #f="ngForm" (ngSubmit)="login()" novalidate>
+  <div id="projectList">
+    <question-view *ngFor="let question of questions" [question]="question" [answerNum]="question.answerNum"></question-view>
+  </div>
+</form>
 
 <mat-paginator [length]="length"
                [pageSize]="questionsCount"

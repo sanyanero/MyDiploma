@@ -89,6 +89,8 @@ namespace Test.API
             loggerFactory.AddDebug();
             app.UseCors("CorsPolicy");
 
+            app.UseStaticFiles();
+
             app.UseExceptionHandler(
             options =>
             {

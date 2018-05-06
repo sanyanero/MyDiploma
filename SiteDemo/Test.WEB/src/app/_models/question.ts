@@ -1,5 +1,3 @@
-import { LanguageType } from "../_enums/languageType";
-
 export class Question {
   id: string;
   questionText: string;
@@ -9,8 +7,9 @@ export class Question {
   option3: string;
   option4: string;
   questionPhoto: string;
+  answerNum: number;
 
-  constructor(id?: string, questionText?: string, language?: number, option1?: string, option2?: string, option3?: string, option4?: string, questionPhoto?: string) {
+  constructor(id?: string, questionText?: string, language?: number, option1?: string, option2?: string, option3?: string, option4?: string, questionPhoto?: string, answerNum?: number) {
     this.id = id;
     this.questionText = questionText;
     this.language = language;
@@ -19,5 +18,6 @@ export class Question {
     this.option3 = option3;
     this.option4 = option4;
     this.questionPhoto = questionPhoto;
+    this.answerNum = answerNum;
   }
 }

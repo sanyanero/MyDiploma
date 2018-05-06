@@ -16,6 +16,7 @@ export class TestPageComponent implements OnInit {
   length: number;
   currentPage: number = 0;
   questionsCount: number = 10;
+  answerNum: number;
 
   questions: Array<Question> = [];
 
